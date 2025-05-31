@@ -37,7 +37,9 @@ class Configurations
             $config['icon'] = $_POST["input-icon"];
             $config['color'] = $_POST["input-color"];
             $config['title'] = $_POST["input-title"];
-            $config['file'] = $this->replaceSlash($_POST["input-file"]);
+            // Workaround for double slashes (see https://github.com/ToX82/logHappens/issues/12 )
+            // $config['file'] = $this->replaceSlash($_POST["input-file"]);
+            $config['file'] = str_replace('/', '//', $_POST["input-file"]);
             $config['parser'] = $_POST["input-parser"];
             $config['disabled'] = isset($_POST['input-disabled']) ? false : true;
 
