@@ -1,4 +1,5 @@
 {
+    "name": "tschueller/loghappens",
     "autoload": {
         "psr-4": {"Logics\\": "logics/"}
     },
