@@ -23,12 +23,16 @@ function init()
 
     define('BASE_URL', rtrim(baseUrl(), '/') . "/");
 
-    if (!is_file(ROOT . 'vendor/autoload.php')) {
-        echo file_get_contents(ROOT . 'webroot/firstrun.html');
-        die();
+    // Include a custom_config.php if exits which allows to override some settings and also the the autoloading
+    if (file_exists(__DIR__ . '/../custom_config.php')) include_once __DIR__ . '/../custom_config.php';
+    if (count(spl_autoload_functions() ) === 0) {
+        // If no autoload function are registered, use the autoloader functionality from logHappens
+        if (!is_file(ROOT . 'vendor/autoload.php')) {
+            echo file_get_contents(ROOT . 'webroot/firstrun.html');
+            die();
+        }
+        require_once ROOT . 'vendor/autoload.php';
     }
-
-    require_once ROOT . 'vendor/autoload.php';
 }
 
 /**
