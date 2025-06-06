@@ -1,11 +1,13 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
         <a class="navbar-brand" href="<?= buildUrl('') ?>">LogHappens</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header" aria-controls="header" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- Comment out because toggle button don't work with the current layout/css (the navbar height height is fixed)
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        -->
 
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="navbar-content">
             <ul class="navbar-nav me-auto">
             </ul>
 
