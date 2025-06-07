@@ -24,8 +24,7 @@ function init()
 
     define('BASE_URL', rtrim(baseUrl(), '/') . "/");
 
-    // Include a custom_config.php if exits which allows to override some settings and also the the autoloading
-    if (file_exists(__DIR__ . '/../custom_config.php')) include_once __DIR__ . '/../custom_config.php';
+    //Check whether an auto loader already exists (e.g. your own autoloader may be defined in config.php)
     if (count(spl_autoload_functions() ) === 0) {
         // If no autoload function are registered, use the autoloader functionality from logHappens
         if (!is_file(ROOT . 'vendor/autoload.php')) {

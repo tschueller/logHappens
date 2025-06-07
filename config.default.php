@@ -7,7 +7,16 @@ global $CORE_SETTINGS;
  */
 $CORE_SETTINGS = (object) [
     // Allowed patterns for the log file (comma separated). Can also include parts of the path such as `/var/log/*.log`.
-    'patterns' => '*.log'
+    'patterns' => '*.log',
+    'header' => (object) [
+        'title' => 'LogHappens',
+        'links' => (object) [
+            'show_configuration' => true,
+            'show_settings' => true,
+            'show_troubleshooting' => true,
+            'show_github' => true
+        ],
+    ]
 ];
 
 // If config.php exists, include it to override the default settings

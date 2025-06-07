@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="<?= buildUrl('') ?>">LogHappens</a>
+        <a class="navbar-brand" href="<?= buildUrl('') ?>"><?= $CORE_SETTINGS->header->title ?></a>
         <!-- Comment out because toggle button don't work with the current layout/css (the navbar height height is fixed)
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -12,16 +12,16 @@
             </ul>
 
             <ul class="navbar-nav d-flex">
-                <li class="nav-item">
+                <li class="nav-item<?= $CORE_SETTINGS->header->links->show_configuration ? '' : '-hidden' ?>">
                     <a class="nav-link" href="<?= buildUrl("configurations") ?>">Configuration</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item<?= $CORE_SETTINGS->header->links->show_settings ? '' : '-hidden' ?>">
                     <a class="nav-link" href="<?= buildUrl("display/settings") ?>">Settings</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item<?= $CORE_SETTINGS->header->links->show_troubleshooting ? '' : '-hidden' ?>">
                     <a class="nav-link" href="<?= buildUrl("display/troubleshooting") ?>">Troubleshooting</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item<?= $CORE_SETTINGS->header->links->show_github ? '' : '-hidden' ?>">
                     <a target="_blank" rel="noreferrer" class="nav-link" href="https://github.com/ToX82/logHappens">GitHub</a>
                 </li>
             </ul>
