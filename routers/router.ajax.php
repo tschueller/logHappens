@@ -18,7 +18,7 @@ if (isset($_GET['viewlog'])) {
 if (isset($_GET['check-file-exists'])) {
     $objConfig = new Logics\Configurations();
     $filename = filter_var($_POST['filename'], FILTER_DEFAULT);
-    $return = $objConfig->checkFileExists($filename);
+    $return = $objConfig->isValidLogFile($filename);
     $return = json_encode($return);
 }
 if (isset($_GET['change-visibility'])) {

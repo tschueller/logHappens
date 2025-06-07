@@ -145,6 +145,11 @@ function writeSettingsCookie($parameter, $selected)
 function openFileOrDie($file)
 {
     if (is_file($file)) {
+        // open only allowed log files
+        if (!isValidLogFilePath($file)) {
+            die('Invalid file path: ' . $file . '!');
+        }
+
         try {
             return file($file);
         } catch (Exception $e) {
@@ -229,4 +234,24 @@ function normalizeChars($inputString)
     ];
 
     return str_replace(array_keys($fixList), array_values($fixList), $inputString);
+}
+
+
+/**
+ * Check a given path if it is a valid log file path and matches the specified pattern.
+ *
+ * @param string $path
+ * @return bool
+ */
+function isValidLogFilePath($path)
+{
+    global $CORE_SETTINGS;
+
+    $patterns = explode(',', $CORE_SETTINGS->patterns);
+    foreach ($patterns as $pattern) {
+        if (fnmatch(trim($pattern), $path, FNM_NOESCAPE | FNM_CASEFOLD)) {
+            return true;
+        }
+    }
+    return false;
 }

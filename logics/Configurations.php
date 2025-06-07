@@ -42,6 +42,12 @@ class Configurations
             $config['disabled'] = isset($_POST['input-disabled']) ? false : true;
             $config['truncatable'] = isset($_POST['input-truncatable']) ? true : false;
 
+            // Check required fields
+            if (!$this->isValidLogFile($config['file']) || empty($configName) || empty($config['title'])) {
+                reload('configurations');
+                return;
+            }
+
             $configurations->$configName = $config;
 
             $jsonData = json_encode(['parsers' => $configurations], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
@@ -136,6 +142,17 @@ class Configurations
     public function checkFileExists($filename)
     {
         return file_exists($filename) && is_file($filename);
+    }
+
+    /**
+     * Checks if a file exists and if the path is a valid log file path/name.
+     *
+     * @param string $filename The name of the file to check.
+     * @return bool Returns true if the file exists and if it is valid, false otherwise.
+     */
+    public function isValidLogFile($filename)
+    {
+        return $this->checkFileExists($filename) && isValidLogFilePath($filename);
     }
 
     /**
