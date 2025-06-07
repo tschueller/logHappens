@@ -7,7 +7,7 @@
     <?php if ($logs['truncatable'] === true) { ?>
         <?php if ($logs['writable'] === true) { ?>
             <a class="btn-openModal ml-4" href="<?= buildUrl("truncate/" . $logs['file']) ?>">
-                <span class="iconify" data-icon="ion:trash-bin" data-inline="false" style="color: red;" data-width="30"></span>
+                <span class="iconify" data-icon="ion:trash-bin-outline" data-inline="false" style="color: #ff4040;" data-height="20"></span>
             </a>
         <?php } else { ?>
             <a class="ml-4" href="<?= buildUrl("display/troubleshooting") ?>">
