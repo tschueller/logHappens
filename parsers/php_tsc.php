@@ -39,6 +39,9 @@ foreach ($content as $line) {
             // $line = preg_replace("/^(\w*)Exception/", "<span class='lh-badge' style='background-color: #a71616;'>Exception:</span> ", $line);
             // $line = preg_replace("/^(\w*)Error/", "<span class='lh-badge' style='background-color: #a71616;'>Error:</span> ", $line);
 
+            $line = preg_replace("/^\[(.*:crit)\]/", "<span class='lh-badge' style='background-color:rgb(124, 0, 0);'>$1</span> ", $line);
+            $line = preg_replace("/^\[(.*:error)\]/", "<span class='lh-badge' style='background-color: #a71616;'>$1</span> ", $line);
+
 			$line = preg_replace("/^(PHP Fatal error):/", "<span class='lh-badge' style='background-color: #a71616;'>$1</span> ", $line);
 			$line = preg_replace("/^(PHP Warning):/", "<span class='lh-badge' style='background-color: #a79716;'>$1</span> ", $line);
 
