@@ -10,6 +10,7 @@ function init()
     include_once __DIR__ . "/utilities.php";
     include_once __DIR__ . "/paths.php";
     include_once __DIR__ . "/security.php";
+    include_once __DIR__ . "/../config.default.php";
 
     header('Content-type: text/html;charset=utf-8');
 

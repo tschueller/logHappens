@@ -32,7 +32,8 @@ class Parsers
         }
 
         $this->config = array_filter($config['parsers'], function ($parser) {
-            return is_file($parser['file']) && !(isset($parser['disabled']) && $parser['disabled'] === true);
+            return is_file($parser['file']) && isValidLogFilePath($parser['file'])
+                   && !(isset($parser['disabled']) && $parser['disabled'] === true);
         });
     }
 
@@ -109,6 +110,11 @@ class Parsers
     public function view(string $file): array
     {
         $data = $this->config[$file];
+
+        // if the file is not set in the config, we reload with a 404
+        if (!$data) {
+            reload('404');
+        }
 
         return [
             'file' => $file,
