@@ -49,7 +49,10 @@
                         <div>
                             <p>
                                 This means that the file path is incorrect. To fix this issue, simply change
-                                the file's path to the correct one.
+                                the file's path to the correct one.<br>
+                                Another reason may be that the file has the wrong file extension. By default, only files with the extension <code>.log</code> are permitted.
+                                To change this, you can modify the <code>patterns</code> property in the <code>config.php</code> file like this (This file must be created in the root directory):<br>
+                                <code>&lt;?php $CORE_SETTINGS->patterns = '*.log, *.txt, /myLogPath/*.log2'; </code>
                             </p>
                         </div>
                     </li>
