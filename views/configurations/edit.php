@@ -37,8 +37,8 @@
                                     <span class="iconify" data-icon="mdi:folder-open"></span>
                                 </button>
                             </div>
-                            <div class="form-text">Specify the absolute path to your log file</div>
-                            <div class="invalid-feedback">The log file path is missing or does not exist</div>
+                            <div class="form-text">Specify the absolute path to your log file (Allowed patterns: <code><?= $CORE_SETTINGS->patterns ?></code>)</div>
+                            <div class="invalid-feedback">The log file path is not valid or missing or does not exist</div>
                         </div>
 
                         <div class="mb-4">
